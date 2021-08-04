@@ -16,5 +16,6 @@ public class ArmstrongNo {
 			System.out.println(+temp+" is a Armstrong Number.. ");
 		else
 			System.out.println(+temp+" is Not a Armstrong Number.. ");
+		scan.close();
 	}
 }

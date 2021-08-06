@@ -30,7 +30,6 @@ public class abstractClient
 {
  public static void main(String args[]) {
 	 FilePersistence r=new FilePersistence();
-	 Persistence r1 = null;
-	 r1.show();
+	 r.show();
  }
 }

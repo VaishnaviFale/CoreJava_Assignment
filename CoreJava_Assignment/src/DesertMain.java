@@ -71,7 +71,8 @@ return total;
 
 public String toString()
 {
-String s = String.format("%-50s $%.2f\n\t %.2f lbs @ $.2f", getName(), getCost()/100, weight, pricePerPound);
+String s = String.format( "%-50s $%.2f\n\t %.2f lbs @ $.2f",getName(), getCost()/100, weight, pricePerPound);
+System.out.println("You need to pay."+getCost()/100);
 return s;
 }
 }
@@ -124,6 +125,7 @@ return total;
 public String toString()
 {
 String s = String.format("%-50s $%.2f\n\t %d cookies @ $%.2f per Dozen", getName(), getCost()/100, quantity, pricePerDozen);
+System.out.println("You need to pay."+getCost()/100);
 return s;
 }
 }
@@ -183,6 +185,7 @@ return Math.round(100 * total );
 public String toString()
 {
 String s = String.format("%-50s $%.2f\n\t %d scoops @ $%.2f/scoop + $%.2f", getName(), getCost()/100, numberOfScoops, pricePerScoop, toppingPrice);
+System.out.println("You need to pay."+getCost()/100);
 return s;
 }
 }
@@ -191,7 +194,7 @@ public class DesertMain {
 	public static void main(String[] args) {
 		System.out.println("Select the following role :");
 		System.out.println("1. Customer ");
-		System.out.println("1. Shopkeeper ");
+		System.out.println("2. Shopkeeper ");
 		System.out.println("Select 1 or 2 ");
 		System.out.println();
 		Scanner scan=new Scanner(System.in);
@@ -199,30 +202,44 @@ public class DesertMain {
 		switch (no) {
 		  case 1:
 		    System.out.println("Welcome!");
-		    System.out.println("Tell us What do you like to buy ");
-		    System.out.println("Enter the Desert Name");
+		    System.out.println("Tell us What do you like to buy,");
+		    System.out.println("***Enter the Desert Code***");
+		    System.out.println("1. Candy  2. Cookies  3. Icecream");
+		    int choice=scan.nextInt();
+		    if(choice==1)
+		    {
+		    	System.out.println("Enter the Number of Pieces you want.");
+		    	int cno=scan.nextInt();
+		    	Candy item1 = new Candy("Candy", cno, 10);
+		    	System.out.println(item1);
+		    }
+		    else if(choice==2)
+		    {
+		    	System.out.println("Enter the Number of Pieces you want.");
+		    	int cono=scan.nextInt();
+		    	Cookie item2 = new Cookie("Cookies", cono, 40);
+		    	System.out.println(item2);
+		    }
+		    else if(choice==3)
+		    {
+		    	System.out.println("Enter the Number of Pieces you want.");
+		    	int ino=scan.nextInt();
+		    	IceCream item3 = new IceCream("IceCream", ino, 1, 50);
+		    	System.out.println(item3);
+		    }
 		    break;
 		  case 2:
 		    System.out.println("Welcome !");
-		    System.out.println("What you like to add ");
+		    String str;
+		    System.out.println("What you like to add :");
+		    str=scan.nextLine();
+		    //System.out.println(str+" is successfully added. ");
+		    
 		    break;
 		  default:
 		    System.out.println("Enter proper Choise");
 		    break;
 		}
-		    
-		
-		String ice="Icecream";
-		
-		ice=scan.nextLine();
-		Candy item1 = new Candy(ice, 2, 10);
-		Cookie item2 = new Cookie("Oatmeal Raisin Cookies", 4, 40);
-		IceCream item3 = new IceCream("Vanilla Ice Cream", 2, 1, 50);
 
-		System.out.println(item1);
-		System.out.println(item2);
-		System.out.println(item3);
-
-		}
-
+	}
 }

@@ -14,7 +14,7 @@ public static void main(String[] args) {
 	    Lambda8 t= new Lambda8();
 	    t.start();
 
-		List<String> pointList = new ArrayList();
+		List<String> pointList = new ArrayList<String>();
 		 
 		pointList.add("1");
 		pointList.add("2");
